@@ -8,7 +8,7 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace TodoManagement.Entities;
 
-public class Todo  : AuditedEntity<Guid>
+public class Todo : AuditedEntity<Guid>
 {
     public string Title { get; set; }
     public string Description { get; set; }
