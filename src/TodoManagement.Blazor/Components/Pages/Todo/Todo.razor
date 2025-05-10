@@ -1,0 +1,61 @@
+﻿@using TodoManagement.Todo
+@inject ITodoAppService TodoAppService
+@inject NavigationManager Navigation
+@page "/todos"
+
+<div class="container">
+
+    <div class="d-flex justify-content-between">
+        <h2>Todos</h2>
+        <Button Clicked="HandleAddTodo">
+            <h6>Add new Todo</h6>
+        </Button>
+    </div>
+
+    <Table >
+
+        <th>
+            <tr>
+                <th>
+                    <span>Title</span>
+                </th>
+                <th>
+                    <span>Description</span>
+                </th>
+                <th>
+                    <span>DueDate</span>
+                </th>
+                <th>
+                    <span>Priority</span>
+                </th>
+                <th>
+                    <span>Status</span>
+                </th>
+            </tr>
+        </th>
+        <tbody>
+            
+            @foreach (var item in tableData)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.DueDate.ToString()</td>
+                    <td>@item.Priority.ToString()</td>
+                    <td>@item.Status.ToString()</td>
+                </tr>
+            }
+            
+        </tbody>
+    </Table>
+
+    @if (tableData.Any())
+    {
+        <div class="table-pager">
+            <button disabled="@(currentPage == 1)" @onclick="() => ChangePage(-1)">Previous</button>
+            <span>Page @currentPage of @totalPages</span>
+            <button disabled="@(currentPage >= totalPages)" @onclick="() => ChangePage(1)">Next</button>
+        </div>
+    }
+</div>
+
