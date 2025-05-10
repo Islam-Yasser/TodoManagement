@@ -6,6 +6,7 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Modularity;
 using Volo.Abp.TenantManagement;
+using Volo.Abp.FluentValidation;
 
 namespace TodoManagement;
 
@@ -17,7 +18,9 @@ namespace TodoManagement;
     typeof(AbpIdentityApplicationModule),
     typeof(AbpAccountApplicationModule),
     typeof(AbpTenantManagementApplicationModule),
-    typeof(AbpSettingManagementApplicationModule)
+    typeof(AbpSettingManagementApplicationModule),
+   typeof(AbpFluentValidationModule) //Add the FluentValidation module
+
     )]
 public class TodoManagementApplicationModule : AbpModule
 {
