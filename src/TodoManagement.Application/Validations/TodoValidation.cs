@@ -13,7 +13,7 @@ public class TodoValidation : AbstractValidator<CreateUpdateTodoDto>
     public TodoValidation()
     {
         RuleFor(x => x.Title)
-        .NotEmpty().WithMessage("Title Can;t be null")
+        .NotEmpty().WithMessage("Title Can't be null")
         .MaximumLength(100).WithMessage("Title Length Must be less than or equal 100 characters");
 
         RuleFor(x => x.DueDate)
