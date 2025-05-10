@@ -1,0 +1,15 @@
+﻿{
+  "applications": {
+    "TodoManagement.Blazor": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44342",
+      "path": "../../../src/TodoManagement.Blazor/TodoManagement.Blazor.csproj",
+      "kubernetesService": ".*-blazorserver$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 2
+      }
+}
+  }
+}
