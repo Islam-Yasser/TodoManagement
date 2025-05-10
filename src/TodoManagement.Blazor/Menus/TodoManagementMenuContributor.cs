@@ -35,6 +35,18 @@ public class TodoManagementMenuContributor : IMenuContributor
             )
         );
 
+        context.Menu.Items.Insert(
+            1,
+            new ApplicationMenuItem(
+                TodoManagementMenus.Home,
+                "todos",
+                "/todos",
+                icon: "fas fa-tasks", 
+                order: 2
+            )
+        );
+
+
         //Administration
         var administration = context.Menu.GetAdministration();
         administration.Order = 6;

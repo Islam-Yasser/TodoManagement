@@ -1,0 +1,51 @@
+﻿@page "/addtodo"
+@using TodoManagement.Enums
+@using TodoManagement.Todo
+@inject NavigationManager Navigation
+@inject ITodoAppService TodoAppService
+
+<Form>
+    <ModalHeader>
+        <ModalTitle>Add New </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+        <Field>
+            <FieldLabel>Title</FieldLabel>
+            <InputText DisplayName="Title" Value="CreateUpdateTodoDto.Title" />
+
+        </Field>
+
+            <Field>
+                <FieldLabel>Description</FieldLabel>
+                <InputTextArea DisplayName="Description" Value="CreateUpdateTodoDto.Description" />
+
+            </Field>
+
+            <Field>
+                <FieldLabel>DueDate</FieldLabel>
+                <DateEdit TValue="DateTime" DateChanged="HandleDateChanging" />
+            </Field>
+            <Field>
+                <FieldLabel>Priority</FieldLabel>
+
+                <Select TValue="Priority" @bind-SelectedValue="@CreateUpdateTodoDto.Priority">
+                      @foreach (int priority in Enum.GetValues(typeof(Priority)))
+                        {
+                            <SelectItem TValue="Priority" Value="@((Priority) priority)">
+                                @priority.ToString()
+                            </SelectItem>
+                        }
+                </Select>
+            </Field>
+            
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Secondary"
+        Clicked="Cancel">
+            Cancel
+        </Button>
+        <Button Color="Color.Primary"
+                Type="@ButtonType.Submit"
+                Clicked="Submit">Save</Button>
+    </ModalFooter>
+</Form>

@@ -41,6 +41,7 @@ public class Program
                 });
             await builder.AddApplicationAsync<TodoManagementBlazorModule>();
             var app = builder.Build();
+
             await app.InitializeApplicationAsync();
             await app.RunAsync();
             return 0;
